@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CarSatgeController;
+use App\Http\Controllers\CarStageController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,16 +31,18 @@ Route::middleware('auth')->group(function () {
 
 //car_satge route
 
-Route::get('carstage/insert',[CarSatgeController::class,'create'])->name('carstage.insert');
-Route::post('carstage/store',[CarSatgeController::class,'store'])->name('carstage.store');
-Route::get('carstage/view',[CarSatgeController::class,'show'])->name('carstage.view');
-Route::get('carstage/edit/{id}',[CarSatgeController::class,'edit'])->name('carstage.edit');
-Route::put('carstage/update/{id}',[CarSatgeController::class,'update'])->name('carstage.update');
-Route::get('carstage/delete/{id}',[CarSatgeController::class,'destroy'])->name('carstage.delete');
+Route::get('carstage/insert',[CarStageController::class,'insert'])->name('carstage.insert');
+Route::post('carstage/store',[CarStageController::class,'store'])->name('carstage.store');
+Route::get('carstage/view',[CarStageController::class,'view'])->name('carstage.view');
+Route::get('carstage/edit/{id}',[CarStageController::class,'edit'])->name('carstage.edit');
+Route::put('carstage/update/{id}',[CarStageController::class,'update'])->name('carstage.update');
+Route::get('carstage/delete/{id}',[CarStageController::class,'destroy'])->name('carstage.delete');
 
-//model Route
+//brand Route
 
-
+Route::get('brand/insert',[BrandController::class,'insert'])->name('brand.insert');
+Route::post('brand/store',[BrandController::class,'store'])->name('brand.store');
+Route::get('brand/view',[BrandController::class,'view'])->name('brand.view');
 
 
 });

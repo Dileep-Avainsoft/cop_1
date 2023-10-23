@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CarStage;
 
-class CarSatgeController extends Controller
+class CarStageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class CarSatgeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function insert(Request $request)
     {
         $request->validate([
             'car_stage_name'=>'required'
@@ -47,7 +47,7 @@ class CarSatgeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function view()
     {
         $car_stage = CarStage::get();
         return view('admin.car_stage.car_stage_view',['cat_stage'=> $car_stage]);

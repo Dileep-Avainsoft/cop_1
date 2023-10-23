@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('brands', function (Blueprint $table) {
-            $table->id();
+            $table->id('brand_id');
+            $table->foreignId('car_stage_id')->references('car_stage_id')->on('car_stages');
+            $table->string('brand_name');
+            $table->string('brand_logo');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

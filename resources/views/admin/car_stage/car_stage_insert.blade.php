@@ -1,7 +1,7 @@
 <x-app-layout>
     @include('admin.partial.header')
     {{-- @include('admin.partial.header') --}}
-    @include('admin.partial.loader')
+    {{-- @include('admin.partial.loader') --}}
     <!-- page-wrapper Start-->
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
         <!-- Page Header Start-->
@@ -22,7 +22,7 @@
                             <div class="card">
                                 <div class="card-header" style="display: flex; justify-content: space-between;">
                                     <h5>Car Stage</h5>
-                                    <a href="{{ route ('carstage.view')}} " class="btn btn-primary"> Viw Car Stage</a>
+                                    <a href="{{ route ('carstage.view')}} " class="btn btn-primary"> View Car Stage</a>
                                 </div>
 
                                 <form method="post" action="{{ route('carstage.store')}}" class="form theme-form" enctype="multipart/form-data">
