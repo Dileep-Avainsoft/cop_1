@@ -22,10 +22,10 @@
                             <div class="card">
                                 <div class="card-header" style="display: flex; justify-content: space-between;">
                                     <h5>Car Stage</h5>
-                                    <a href="{{ route ('carstage.view')}} " class="btn btn-primary"> View Car Stage</a>
+                                    <a href="{{ route ('car_stage.view')}} " class="btn btn-primary"> View Car Stage</a>
                                 </div>
 
-                                <form method="post" action="{{ route('carstage.store')}}" class="form theme-form" enctype="multipart/form-data">
+                                <form method="post" action="{{ route('car_stage.store')}}" class="form theme-form" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="card-body">
@@ -35,7 +35,7 @@
                                                     <label class="form-label" for="exampleFormControlTextarea14">Car Stage: </label>
                                                     <input type="text" class="form-control btn-square"
                                                            id="exampleFormControlTextarea14" name="car_stage_name" style="width: 500px"
-                                                           placeholder="Enter Car Stage">
+                                                           placeholder="Enter Car Stage" value="{{ old('car_stage_name')}}">
                                                            @if($errors->has('car_stage_name'))
             <span class="text-danger">{{ $errors->first('car_stage_name') }}</span>
             @endif

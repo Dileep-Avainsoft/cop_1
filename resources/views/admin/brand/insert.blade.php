@@ -22,7 +22,7 @@
                             <div class="card">
                                 <div class="card-header" style="display: flex; justify-content: space-between;">
                                     <h5>Brand Entry</h5>
-                                    <a href=" " class="btn btn-primary"> View Brand</a>
+                                    <a href="{{ route('brand.view')}} " class="btn btn-primary"> View Brand</a>
                                 </div>
 
                                 <form class="form theme-form" action="{{ route('brand.store')}}" method="post" enctype="multipart/form-data">
@@ -32,37 +32,45 @@
                                             <div class="col">
 
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="exampleFormControlSelect17">Select
-                                                        Car Stage</label>
-                                                    <select style="width: 500px"
-                                                        class="form-select input-air-primary digits"
-                                                        id="exampleFormControlSelect17" name="car_stage_id" required>
-                                                        <option selected disabled>Select
-                                                            Car Stage</option>
-                                                            @foreach ($CarStage_name as $data )
-                                <option value="{{ $data->car_stage_id}}" >{{ $data->car_stage_name}}</option>
-                                               @endforeach
-
-
+                                                    <label class="form-label" for="exampleFormControlSelect17">Select Car Stage</label>
+                                                    <select style="width: 500px" class="form-select input-air-primary digits"
+                                                        id="exampleFormControlSelect17" name="car_stage_id">
+                                                        <option value="" selected disabled>Select Car Stage</option>
+                                                        @foreach ($CarStage_name as $data)
+                                                            <option value="{{ $data->car_stage_id }}"
+                                                                @if (old('car_stage_id') == $data->car_stage_id) selected @endif>
+                                                                {{ $data->car_stage_name }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
+                                                    @if($errors->has('car_stage_id'))
+                                                        <span class="text-danger">{{ $errors->first('car_stage_id') }}</span>
+                                                    @endif
                                                 </div>
-
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="exampleInputPassword16">Brand Name
                                                         :</label>
                                                     <input style="width: 500px" class="form-control input-air-primary"
                                                         name="brand_name" id="exampleInputPassword16" type="text"
-                                                        placeholder="Enter Brand Name">
+                                                        placeholder="Enter Brand Name" value="{{ old('brand_name')}}">
+                                                        @if($errors->has('brand_name'))
+                                                        <span class="text-danger">{{ $errors->first('brand_name') }}</span>
+                                                        @endif
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="exampleInputPassword16">Brand Logo
-                                                        :</label>
-                                                    <input style="width: 500px" class="form-control input-air-primary"
-                                                        name="brand_logo" accept="image/png, image/jpeg" id="submitdata"
-                                                        placeholder="Enter Brand Logo URL" type="file">
+                                                    <label class="form-label" for="exampleInputPassword16">Brand Logo:</label>
+                                                    <input style="width: 500px" class="form-control input-air-primary" name="brand_logo" accept="image/png, image/jpeg" id="submitdata" placeholder="Enter Brand Logo URL" type="file">
+
+                                                    @if ($errors->has('brand_logo'))
+                                                        <span class="text-danger">{{ $errors->first('brand_logo') }}</span>
+                                                    @endif
+
+                                                   
+
                                                 </div>
+
                                             </div>
                                             <br>
                                             <div class="media mb-2">

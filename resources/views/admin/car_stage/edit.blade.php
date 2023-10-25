@@ -22,10 +22,10 @@
                             <div class="card">
                                 <div class="card-header" style="display: flex; justify-content: space-between;">
                                     <h5>Car Stage</h5>
-                                    <a href="{{ route ('carstage.view')}} " class="btn btn-primary"> Viw Car Stage</a>
+                                    <a href="{{ route ('car_stage.view')}} " class="btn btn-primary"> Viw Car Stage</a>
                                 </div>
 
-                                <form method="post" action="/carstage/update/{{encrypt($car_stage_edit->car_stage_id)}}" class="form theme-form"
+                                <form method="post" action="/car_stage/update/{{encrypt($car_stage_edit->car_stage_id)}}" class="form theme-form"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('put')

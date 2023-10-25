@@ -42,7 +42,7 @@
                                 </div> --}}
                                 <div class="card-header" style="display: flex; justify-content: space-between;">
                                     <h3>Car Stage Detail</h3>
-                                    <a href="{{ route('carstage.insert') }} " class="btn btn-primary"> Add Car
+                                    <a href="{{ route('car_stage.insert') }} " class="btn btn-primary"> Add Car
                                         Stage</a>
                                 </div>
 

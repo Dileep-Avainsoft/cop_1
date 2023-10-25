@@ -18,15 +18,15 @@ class CarStageController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function insert()
     {
-        return view('admin.car_stage.car_stage_insert');
+        return view('admin.car_stage.insert');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function insert(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'car_stage_name'=>'required'
@@ -37,11 +37,11 @@ class CarStageController extends Controller
             $carStage->car_stage_name = $request->car_stage_name;
             $carStage->save();
 
-            session()->flash('success', 'Data inserted successfully.');
+            session()->flash('success', 'Car Stage inserted successfully.');
         } else {
-            session()->flash('error', 'Data not found or could not be updated.');
+            session()->flash('error', 'something went wrong.');
         }
-        return redirect()->route('carstage.view');
+        return redirect()->route('car_stage.view');
     }
 
     /**
@@ -50,7 +50,7 @@ class CarStageController extends Controller
     public function view()
     {
         $car_stage = CarStage::get();
-        return view('admin.car_stage.car_stage_view',['cat_stage'=> $car_stage]);
+        return view('admin.car_stage.view',['cat_stage'=> $car_stage]);
 
     }
 
@@ -61,7 +61,7 @@ class CarStageController extends Controller
     {
 
         $car_stage = CarStage::where('car_stage_id',decrypt($id))->first();
-        return view('admin.car_stage.car_stage_edit',['car_stage_edit'=> $car_stage]);
+        return view('admin.car_stage.edit',['car_stage_edit'=> $car_stage]);
     }
 
     /**
@@ -81,12 +81,12 @@ class CarStageController extends Controller
             $carStage->car_stage_name = $request->car_stage_name;
             $carStage->save();
 
-            session()->flash('success', 'Data updated successfully.');
+            session()->flash('success', 'Car Stage updated successfully.');
         } else {
-            session()->flash('error', 'Data not found or could not be updated.');
+            session()->flash('error', 'something went wrong..');
         }
 
-        return redirect()->route('carstage.view');
+        return redirect()->route('car_stage.view');
 
     }
 
@@ -98,13 +98,13 @@ class CarStageController extends Controller
         $carStage = CarStage::where('car_stage_id', decrypt($id))->first();
         if ($carStage) {
             $carStage->delete();
-            session()->flash('success', 'Data Delete successfully.');
+            session()->flash('success', 'Car Stage Delete successfully.');
         }
         else{
-            session()->flash('error', 'Data Not Delete successfully.');
+            session()->flash('error', 'something went wrong.');
 
         }
-        return redirect()->route('carstage.view');
+        return redirect()->route('car_stage.view');
     }
 
 }

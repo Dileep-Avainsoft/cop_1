@@ -50,8 +50,8 @@
                                 <!--                        <use href="assets/svg/icon-sprite.svg#fill-home"></use>-->
                             </svg><span>Brand</span></a>
                         <ul class="sidebar-submenu">
-                            <li><a  href="/brand">Add</a></li>
-                            <li><a  href="/brand_v">View</a></li>
+                            <li><a  href="{{route('brand.insert')}}">Add</a></li>
+                            <li><a  href="{{ route('brand.view')}}">View</a></li>
                         </ul>
                     </li>
 
@@ -199,8 +199,8 @@
                                 <!--                        <use href="assets/svg/icon-sprite.svg#fill-home"></use>-->
                             </svg><span>Car Stage</span></a>
                         <ul class="sidebar-submenu">
-                            <li><a  href="{{ route ('carstage.insert')}}">Add</a></li>
-                            <li><a  href="{{ route('carstage.view')}}">View</a></li>
+                            <li><a  href="{{ route ('car_stage.insert')}}">Add</a></li>
+                            <li><a  href="{{ route('car_stage.view')}}">View</a></li>
                         </ul>
                     </li>
 

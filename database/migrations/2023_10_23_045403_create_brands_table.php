@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('car_stage_id')->references('car_stage_id')->on('car_stages');
             $table->string('brand_name');
             $table->string('brand_logo');
-            $table->integer('status')->default(1);
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }
